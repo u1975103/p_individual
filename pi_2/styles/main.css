@@ -1,7 +1,6 @@
 #title{
 	font-size: 26px;
 	line-height: 75px;
-	text-align: center;
 	color: white;
 }
 
@@ -13,6 +12,13 @@
 	height: 75px;
 	font-size: 16px;
 	margin-top: 10px;
+}
+
+div{
+	display:grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-auto-rows: 100px;
+  	gap: 20px;
 }
 
 body{
