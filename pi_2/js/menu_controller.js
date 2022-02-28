@@ -16,7 +16,7 @@ function options(){
 }
 
 function nav_p2(){
-	loadpage("./index.html")
+	loadpage("./index.html");
 }
 
 
