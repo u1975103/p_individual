@@ -37,3 +37,9 @@ button.menu-object:hover:not(:active){
 	height: 85px;
 }
 
+div.cards{
+	display: grid;
+  	grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+  	grid-auto-rows: minmax(100px, auto);
+  	gap: 20px;
+}
