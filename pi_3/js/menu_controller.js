@@ -11,10 +11,13 @@ function exit (){
 		alert("Leaving " + name + "'s game");
 	}
 	name = "";
+	loadpage("../index.html")
 }
 
 function options(){
 	loadpage("./html/options.html");
 }
 
-
+function nav_p3(){
+	loadpage("./pi_3/index.html");
+}
