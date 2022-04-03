@@ -19,8 +19,8 @@ var game = new Vue({
 		items: [],
 		num_cards: 2,
 		bad_clicks: 0,
-		difficulty = 0,
-		timer = 900
+		difficulty: 0,
+		timer: 900
 	},
 	created: function(){
 		this.username = sessionStorage.getItem("username","unknown");
@@ -49,7 +49,7 @@ var game = new Vue({
 		var item = this.items;
 		var card = this.current_card;
 		function funcioGirar(){
-			card.splice(0, card.length)
+			card.splice(0, card.length);
 			for (var i = 0; i < item.length; i++){
 				card.push({done:false, texture: back});
 			}
