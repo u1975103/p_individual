@@ -10,6 +10,7 @@ var json = localStorage.getItem("config");
 		if(json)
 			options_data = JSON.parse(json);
 
+
 var game = new Vue({
 	el: "#game_id",
 	data: {
@@ -17,18 +18,41 @@ var game = new Vue({
 		current_card: [],
 		items: [],
 		num_cards: 2,
-		bad_clicks: 0
+		bad_clicks: 0,
+		difficulty = 0,
+		timer = 900
 	},
 	created: function(){
 		this.username = sessionStorage.getItem("username","unknown");
 		this.num_cards = options_data.cards;
+		if (options_data.difficulty == 'easy'){
+			difficulty = 5;
+			timer = 1400;
+		}
+		else if(options_data.difficulty == 'normal'){
+			difficulty = 10;
+			timer = 1200;
+		}
+		else{
+			difficulty = 20;
+			timer = 900;
+		}
 		this.items = items.slice(); // Copiem l'array
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 		this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
 		this.items = this.items.concat(this.items); // Dupliquem els elements
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 		for (var i = 0; i < this.items.length; i++){
-			this.current_card.push({done: false, texture: back});
+			this.current_card.push({done: true, texture: this.items[i]});
+		}
+		this.timeout = setTimeout(funcioGirar, this.time);
+		var item = this.items;
+		var card = this.current_card;
+		function funcioGirar(){
+			card.splice(0, card.length)
+			for (var i = 0; i < item.length; i++){
+				card.push({done:false, texture: back});
+			}
 		}
 	},
 	methods: {
@@ -67,7 +91,7 @@ var game = new Vue({
 	},
 	computed: {
 		score_text: function(){
-			return 100 - this.bad_clicks * 20;
+			return 100 - this.bad_clicks * difficulty;
 		}
 	}
 
