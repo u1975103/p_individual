@@ -46,7 +46,7 @@ var game = new Vue({
 		for (var i = 0; i < this.items.length; i++){
 			this.current_card.push({done: true, texture: this.items[i]});
 		}
-		this.timeout = setTimeout(funcioGirar, this.time);
+		this.timeout = setTimeout(funcioGirar, this.timer);
 		var item = this.items;
 		var card = this.current_card;
 		function funcioGirar(){
