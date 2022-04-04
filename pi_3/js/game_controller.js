@@ -27,16 +27,16 @@ var game = new Vue({
 		this.username = sessionStorage.getItem("username","unknown");
 		this.num_cards = options_data.cards;
 		if (options_data.difficulty == 'easy'){
-			difficulty = 5;
-			timer = 1400;
+			this.difficulty = 5;
+			this.timer = 1400;
 		}
 		else if(options_data.difficulty == 'normal'){
-			difficulty = 10;
-			timer = 1200;
+			this.difficulty = 10;
+			this.timer = 1200;
 		}
 		else{
-			difficulty = 20;
-			timer = 900;
+			this.difficulty = 20;
+			this.timer = 900;
 		}
 		this.items = items.slice(); // Copiem l'array
 		this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
