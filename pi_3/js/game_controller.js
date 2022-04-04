@@ -21,7 +21,7 @@ var game = new Vue({
 		bad_clicks: 0,
 		difficulty: 0,
 		timer: 900,
-		init = false
+		init: false
 	},
 	created: function(){
 		this.username = sessionStorage.getItem("username","unknown");
