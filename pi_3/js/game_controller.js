@@ -26,11 +26,11 @@ var game = new Vue({
 	created: function(){
 		this.username = sessionStorage.getItem("username","unknown");
 		this.num_cards = options_data.cards;
-		if (options_data.difficulty == 'easy'){
+		if (options_data.dificulty == 'easy'){
 			this.difficulty = 5;
 			this.timer = 1400;
 		}
-		else if(options_data.difficulty == 'normal'){
+		else if(options_data.dificulty == 'normal'){
 			this.difficulty = 10;
 			this.timer = 1200;
 		}
@@ -93,7 +93,7 @@ var game = new Vue({
 	},
 	computed: {
 		score_text: function(){
-			return 100 - this.bad_clicks * difficulty;
+			return 100 - this.bad_clicks * this.difficulty;
 		}
 	}
 
